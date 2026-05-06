@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #1a1a2e;
+  --bg-elevated: #22223a;
+  --border: #2a2a45;
+  --border-hover: #3a3a5c;
+  --text-primary: #e8e8f0;
+  --text-secondary: #9898b8;
+  --text-muted: #6868888;
+  --accent: #7c3aed;
+  --accent-light: #a78bfa;
+  --accent-glow: rgba(124, 58, 237, 0.25);
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Glass card effect */
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 46, 0.8),
+    rgba(34, 34, 58, 0.6)
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass:hover {
+  border-color: var(--border-hover);
+}
+
+/* Glow effect for accent elements */
+.glow {
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 60px rgba(124, 58, 237, 0.1);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--bg-primary), #0f0f1a, #1a0a2e);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Pulse animation for status indicators */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Typing indicator */
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.typing-dot:nth-child(1) { animation: blink 1.4s infinite 0s; }
+.typing-dot:nth-child(2) { animation: blink 1.4s infinite 0.2s; }
+.typing-dot:nth-child(3) { animation: blink 1.4s infinite 0.4s; }
+
+/* Message bubble styles */
+.message-user {
+  background: linear-gradient(135deg, var(--accent), #5b21b6);
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+}
+
+.message-ai {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+}

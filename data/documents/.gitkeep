@@ -1,0 +1,2 @@
+# This directory holds raw documents for RAG ingestion.
+# Place PDF, TXT, MD, or DOCX files here and run the indexer.

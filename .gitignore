@@ -1,0 +1,31 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.uv/
+
+# Data (local only)
+data/chroma_db/
+data/app.db
+data/analytics.duckdb
+data/documents/*
+!data/documents/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (frontend)
+frontend/node_modules/
+frontend/.next/
+
+# Docker
+*.log

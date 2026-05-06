@@ -1,0 +1,12 @@
+.venv
+.uv
+__pycache__
+*.pyc
+data/*
+!data/.gitkeep
+.env
+.git
+frontend/
+docs/
+scripts/
+tests/

@@ -1,0 +1,100 @@
+version: "3.8"
+
+services:
+  backend:
+    build: .
+    container_name: production-ai-backend
+    ports:
+      - "8000:8000"
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      chromadb:
+        condition: service_started
+      langfuse:
+        condition: service_started
+    networks:
+      - ai_network
+    environment:
+      # Use the internal docker network to reach the ollama service
+      - OLLAMA_HOST=http://ollama:11434
+      - CHROMA_PERSIST_DIR=/app/data/chroma_db
+      - DATABASE_URL=sqlite:////app/data/app.db
+      - DUCKDB_PATH=/app/data/analytics.duckdb
+      - LANGFUSE_HOST=http://langfuse:3000
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: production-ai-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ai_network
+
+  frontend:
+    build: ./frontend
+    container_name: production-ai-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - ai_network
+    environment:
+      # The browser (client-side) needs to reach the backend via localhost
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: production-ai-chroma
+    ports:
+      - "8100:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    networks:
+      - ai_network
+
+  langfuse:
+    image: langfuse/langfuse:2
+    container_name: production-ai-langfuse
+    ports:
+      - "3100:3000"
+    environment:
+      - DATABASE_URL=postgresql://langfuse:langfuse@langfuse-db:5432/langfuse
+      - NEXTAUTH_SECRET=mysecret
+      - SALT=mysalt
+      - NEXTAUTH_URL=http://localhost:3100
+    depends_on:
+      langfuse-db:
+        condition: service_healthy
+    networks:
+      - ai_network
+
+  langfuse-db:
+    image: postgres:16-alpine
+    container_name: production-ai-langfuse-db
+    environment:
+      - POSTGRES_USER=langfuse
+      - POSTGRES_PASSWORD=langfuse
+      - POSTGRES_DB=langfuse
+    volumes:
+      - langfuse_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langfuse -d langfuse"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ai_network
+
+volumes:
+  chroma_data:
+  langfuse_pgdata:
+  ollama_data:
+
+networks:
+  ai_network:
+    driver: bridge
