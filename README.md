@@ -58,6 +58,7 @@ production-ai/
 
 - [Architecture & Design](docs/architecture.md)
 - [Implementation Roadmap](docs/implementation.md)
+- [User Guide (Non-IT)](docs/user_guide.md)
 - [Ollama Docker Setup](docs/ollama_docker_plan.md)
 - [MCP Tool Integration](docs/mcp.md)
 
