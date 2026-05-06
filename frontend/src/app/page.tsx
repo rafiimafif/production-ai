@@ -38,7 +38,7 @@ export default function DashboardPage() {
             return { ...s, status: "online" }; // Assume others are online if backend responds
           })
         );
-      } catch (error) {
+      } catch {
         setServices((prev) => prev.map((s) => ({ ...s, status: "offline" })));
       }
     };

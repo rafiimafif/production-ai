@@ -1,8 +1,13 @@
 """Quick validation for Phase 4 agent modules."""
 
-# Test 1: tools module
+
+from langchain_core.messages import HumanMessage
+
+from backend.agents.graph import agent
+from backend.agents.nodes import router_node
 from backend.agents.tools import TOOL_REGISTRY, get_tool
 
+# Test 1: tools module
 assert "search_knowledge_base" in TOOL_REGISTRY
 assert "query_database" in TOOL_REGISTRY
 
@@ -15,10 +20,6 @@ except KeyError:
 print("tools.py  — ALL CHECKS PASSED")
 
 # Test 2: nodes module
-from langchain_core.messages import HumanMessage
-
-from backend.agents.nodes import llm_node, rag_node, router_node, tool_node
-
 state_rag = {"messages": [HumanMessage(content="search for documents about Python")]}
 result = router_node(state_rag)
 assert result["next_action"] == "rag", f"Expected rag, got {result['next_action']}"
@@ -38,8 +39,6 @@ assert result["next_action"] == "llm", f"Expected llm for empty, got {result['ne
 print("nodes.py  — ALL CHECKS PASSED")
 
 # Test 3: graph compiles
-from backend.agents.graph import AgentState, agent
-
 assert agent is not None
 assert "router" in agent.nodes
 assert "rag" in agent.nodes
