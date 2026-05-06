@@ -38,31 +38,27 @@ production-ai/
 - [uv](https://github.com/astral-sh/uv) (Python package manager).
 
 ### Setup
-1. **Pull Models**:
+1. **Launch Services**:
    ```bash
-   ollama pull gemma3:4b
-   ollama pull llama3.3:8b
-   ollama pull nomic-embed-text
+   # Starts Backend, Frontend, ChromaDB, Langfuse, and Ollama
+   docker-compose up -d
    ```
 
-2. **Install Dependencies**:
+2. **Pull Models**:
+   Since Ollama runs in Docker, pull the models into the container:
    ```bash
-   uv sync
+   docker exec -it production-ai-ollama ollama pull gemma3:4b
+   docker exec -it production-ai-ollama ollama pull nomic-embed-text
    ```
 
 3. **Environment Config**:
    Copy `.env.example` to `.env` and fill in your keys.
 
-4. **Launch Services**:
-   ```bash
-   docker-compose up -d
-   ```
-
 ## 📖 Documentation Index
 
 - [Architecture & Design](docs/architecture.md)
 - [Implementation Roadmap](docs/implementation.md)
-- [API Reference](docs/api.md)
+- [Ollama Docker Setup](docs/ollama_docker_plan.md)
 - [MCP Tool Integration](docs/mcp.md)
 
 ---
