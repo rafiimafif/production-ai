@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     # -- Ollama ---------------------------------------------------------------
     ollama_host: str = "http://localhost:11434"
-    default_model: str = "gemma3:4b"
+    default_model: str = "qwen2.5:7b"
 
     # -- ChromaDB -------------------------------------------------------------
     chroma_persist_dir: str = "./data/chroma_db"

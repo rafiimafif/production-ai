@@ -8,18 +8,18 @@ This project implements a complete AI stack designed for performance, privacy, a
 
 ## 🛠️ Technology Stack
 
-- **LLM Layer**: Ollama (Gemma 3, Llama 3.3, Mistral Small) - *Local & Free*
-- **Orchestration**: LangGraph / CrewAI - *Agentic workflows*
-- **RAG Engine**: LlamaIndex + ChromaDB - *Local vector search*
-- **Tool Layer**: Model Context Protocol (MCP) - *Unified agent connectivity*
+- **LLM Layer**: Ollama (Qwen 2.5 14B, Qwen 2.5 7B) - _Local & Free_
+- **Orchestration**: LangGraph / CrewAI - _Agentic workflows_
+- **RAG Engine**: LlamaIndex + ChromaDB - _Local vector search_
+- **Tool Layer**: Model Context Protocol (MCP) - _Unified agent connectivity_
 - **Frontend**: Next.js (App Router) + Tailwind CSS
 - **Data Layer**: SQLite (App Data) + DuckDB (Analytics)
-- **Observability**: Langfuse / Phoenix - *Self-hosted tracing*
+- **Observability**: Langfuse / Phoenix - _Self-hosted tracing_
 - **Infrastructure**: Docker + Docker Compose
 
 ## ✨ Key Features
 
-- **Local-First Inference**: Run state-of-the-art models like Gemma 3 and Llama 3.3 entirely on your own hardware using Ollama.
+- **Local-First Inference**: Run state-of-the-art models like Qwen 2.5 entirely on your own hardware using Ollama.
 - **Smart RAG (Retrieval-Augmented Generation)**: Chat with your own PDF and text documents with high-precision vector search.
 - **Agentic Workflows**: Multi-step reasoning powered by LangGraph that knows when to search files vs. query databases.
 - **Unified Tooling (MCP)**: Standardized connection to external tools using the Model Context Protocol.
@@ -29,22 +29,28 @@ This project implements a complete AI stack designed for performance, privacy, a
 ## 🚀 Quick Start
 
 ### 1. Launch Services
+
 Everything is containerized. Start the entire ecosystem with one command:
+
 ```bash
 docker-compose up -d
 ```
 
 ### 2. Prepare the AI Brain
+
 Ollama runs inside Docker. Pull your preferred models to begin:
+
 ```bash
 # Chat & Reasoning
-docker exec -it production-ai-ollama ollama pull gemma3:4b
+docker exec -it production-ai-ollama ollama pull qwen2.5:14b
+docker exec -it production-ai-ollama ollama pull qwen2.5:7b
 
 # Embeddings (for reading documents)
 docker exec -it production-ai-ollama ollama pull nomic-embed-text
 ```
 
 ### 3. Access the Dashboard
+
 - **Web UI**: [http://localhost:3000](http://localhost:3000)
 - **API Gateway**: [http://localhost:8000](http://localhost:8000)
 - **Langfuse (Tracing)**: [http://localhost:3100](http://localhost:3100)
@@ -64,7 +70,8 @@ production-ai/
 
 ## 🤝 Contributing
 
-This repository has **Branch Protection** enabled. 
+This repository has **Branch Protection** enabled.
+
 - Direct pushes to `main` are restricted.
 - Please create a new branch for your features and submit a **Pull Request (PR)**.
 - Ensure your code passes linting (`ruff` for backend, `eslint` for frontend).
@@ -78,4 +85,5 @@ This repository has **Branch Protection** enabled.
 - [MCP Tool Integration](docs/mcp.md)
 
 ---
+
 **Total Infrastructure Cost: $0.00** | **Data Privacy: 100%**

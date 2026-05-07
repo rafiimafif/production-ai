@@ -7,7 +7,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [model, setModel] = useState("gemma3");
+  const [model, setModel] = useState("qwen2.5-7b");
   const [useAgent, setUseAgent] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -77,9 +77,8 @@ export default function ChatPage() {
             onChange={(e) => setModel(e.target.value)}
             className="glass rounded-xl px-3 py-2 text-xs text-[var(--text-secondary)] bg-transparent border-none focus:outline-none focus:ring-1 focus:ring-[var(--accent)] cursor-pointer"
           >
-            <option value="gemma3">Gemma 3</option>
-            <option value="llama3">Llama 3.3</option>
-            <option value="mistral">Mistral Small</option>
+            <option value="qwen2.5-14b">Qwen 2.5 (14B)</option>
+            <option value="qwen2.5-7b">Qwen 2.5 (7B)</option>
           </select>
           {/* Agent toggle */}
           <button

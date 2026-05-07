@@ -23,24 +23,17 @@ class ModelInfo:
 # Registry — extend this dict when you pull new models.
 # ---------------------------------------------------------------------------
 MODELS: dict[str, ModelInfo] = {
-    "gemma3": ModelInfo(
-        id="gemma3",
-        ollama_tag="gemma3:4b",
-        description="Google Gemma 3 4B — fast reasoning and instruction following.",
-        context_window=8192,
-        use_case="general",
-    ),
-    "llama3": ModelInfo(
-        id="llama3",
-        ollama_tag="llama3.3:8b",
-        description="Meta Llama 3.3 8B — high-quality generation for complex tasks.",
-        context_window=8192,
+    "qwen2.5-14b": ModelInfo(
+        id="qwen2.5-14b",
+        ollama_tag="qwen2.5:14b",
+        description="Alibaba Qwen 2.5 14B — highly capable for agentic workflows.",
+        context_window=32768,
         use_case="complex",
     ),
-    "mistral": ModelInfo(
-        id="mistral",
-        ollama_tag="mistral-small:latest",
-        description="Mistral Small — balanced speed and quality.",
+    "qwen2.5-7b": ModelInfo(
+        id="qwen2.5-7b",
+        ollama_tag="qwen2.5:7b",
+        description="Alibaba Qwen 2.5 7B — extremely fast and efficient for daily use.",
         context_window=32768,
         use_case="general",
     ),
@@ -53,7 +46,7 @@ MODELS: dict[str, ModelInfo] = {
     ),
 }
 
-DEFAULT_CHAT_MODEL = "gemma3"
+DEFAULT_CHAT_MODEL = "qwen2.5-7b"
 DEFAULT_EMBED_MODEL = "nomic-embed"
 
 

@@ -3,14 +3,13 @@
 import { useState } from "react";
 
 const MODELS = [
-  { id: "gemma3", tag: "gemma3:4b", desc: "Google Gemma 3 — fast reasoning", size: "~3 GB" },
-  { id: "llama3", tag: "llama3.3:8b", desc: "Meta Llama 3.3 — complex tasks", size: "~5 GB" },
-  { id: "mistral", tag: "mistral-small:latest", desc: "Mistral Small — balanced", size: "~4 GB" },
+  { id: "qwen2.5-14b", tag: "qwen2.5:14b", desc: "Alibaba Qwen 2.5 (14B) — agentic workflows", size: "~9 GB" },
+  { id: "qwen2.5-7b", tag: "qwen2.5:7b", desc: "Alibaba Qwen 2.5 (7B) — fast and efficient", size: "~4.5 GB" },
   { id: "nomic", tag: "nomic-embed-text", desc: "Embedding model for RAG", size: "~274 MB" },
 ];
 
 export default function SettingsPage() {
-  const [defaultModel, setDefaultModel] = useState("gemma3");
+  const [defaultModel, setDefaultModel] = useState("qwen2.5-7b");
   const [ollamaHost, setOllamaHost] = useState("http://localhost:11434");
   const [saved, setSaved] = useState(false);
 

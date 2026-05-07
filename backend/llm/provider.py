@@ -7,7 +7,7 @@ Responsibilities:
   • Health-check the Ollama connection at startup.
 
 All functions resolve the model tag through the central registry so callers
-can use friendly IDs ("gemma3") instead of raw Ollama tags ("gemma3:4b").
+can use friendly IDs ("qwen2.5-7b") instead of raw Ollama tags ("qwen2.5:7b").
 """
 
 from __future__ import annotations
@@ -46,8 +46,8 @@ def _resolve_model(model: str | None) -> str:
 
     Accepts:
       • None          → falls back to settings.default_model
-      • Registry ID   → looked up in MODELS ("gemma3" → "gemma3:4b")
-      • Raw tag       → passed through as-is ("gemma3:4b" → "gemma3:4b")
+      • Registry ID   → looked up in MODELS ("qwen2.5-7b" → "qwen2.5:7b")
+      • Raw tag       → passed through as-is ("qwen2.5:7b" → "qwen2.5:7b")
     """
     if model is None:
         return settings.default_model
