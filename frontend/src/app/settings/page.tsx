@@ -5,7 +5,7 @@ import { useState } from "react";
 const MODELS = [
   { id: "qwen2.5-14b", tag: "qwen2.5:14b", desc: "Alibaba Qwen 2.5 (14B) — agentic workflows", size: "~9 GB" },
   { id: "qwen2.5-7b", tag: "qwen2.5:7b", desc: "Alibaba Qwen 2.5 (7B) — fast and efficient", size: "~4.5 GB" },
-  { id: "nomic", tag: "nomic-embed-text", desc: "Embedding model for RAG", size: "~274 MB" },
+  { id: "qwen2.5-1.5b", tag: "qwen2.5:1.5b", desc: "Small model for embeddings & light tasks", size: "~900 MB" },
 ];
 
 export default function SettingsPage() {
@@ -63,7 +63,7 @@ export default function SettingsPage() {
             onChange={(e) => setDefaultModel(e.target.value)}
             className="w-full glass rounded-xl px-4 py-2.5 text-sm text-[var(--text-primary)] bg-transparent focus:outline-none focus:ring-1 focus:ring-[var(--accent)] cursor-pointer"
           >
-            {MODELS.filter((m) => m.id !== "nomic").map((m) => (
+            {MODELS.filter((m) => m.id !== "qwen2.5-1.5b").map((m) => (
               <option key={m.id} value={m.id}>
                 {m.tag}
               </option>

@@ -17,7 +17,7 @@ To make this "Assistant" work, we built four main parts:
 
 ### 🧠 The Brain (Local LLM)
 This is the part that handles the talking. We use a "Brain" called **Ollama**. 
-- **Analogy**: It's like having a library of different experts (Gemma, Llama, Mistral) that you can swap in and out depending on the task.
+- **Analogy**: It's like having a library of different experts (Qwen 2.5 14B & 7B) that you can swap in and out depending on the task.
 
 ### 📚 The Memory (RAG)
 By default, AI brains only know what they were taught during school. They don't know about *your* specific files.

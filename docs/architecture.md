@@ -40,9 +40,9 @@ graph TD
 
 ### 1. LLM Layer (Ollama)
 We utilize **Ollama** for local inference. This ensures data privacy and eliminates API costs.
-- **Gemma 3**: Primary reasoning and instruction following.
-- **Llama 3.3**: High-performance alternative for complex tasks.
-- **Nomic-Embed-Text**: Specialized model for high-quality RAG embeddings.
+- **Qwen 2.5 14B**: Primary reasoning and complex instruction following.
+- **Qwen 2.5 7B**: Fast, efficient alternative for general chat.
+- **Qwen 2.5 1.5B**: Lightweight model used for local embeddings in the RAG pipeline.
 
 ### 2. Orchestration (LangGraph)
 Unlike linear chains, **LangGraph** allows for stateful, cyclic graphs.

@@ -50,12 +50,12 @@ def configure_llama_index() -> None:
         request_timeout=120.0,
     )
     LlamaSettings.embed_model = OllamaEmbedding(
-        model_name="nomic-embed-text",
+        model_name="qwen2.5:1.5b",
         base_url=settings.ollama_host,
     )
     _configured = True
     logger.info(
-        "LlamaIndex configured  llm=%s  embed=nomic-embed-text",
+        "LlamaIndex configured  llm=%s  embed=qwen2.5:1.5b",
         settings.default_model,
     )
 

@@ -46,7 +46,7 @@ docker exec -it production-ai-ollama ollama pull qwen2.5:14b
 docker exec -it production-ai-ollama ollama pull qwen2.5:7b
 
 # Embeddings (for reading documents)
-docker exec -it production-ai-ollama ollama pull nomic-embed-text
+docker exec -it production-ai-ollama ollama pull qwen2.5:1.5b
 ```
 
 ### 3. Access the Dashboard

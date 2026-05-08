@@ -16,7 +16,7 @@ const SERVICES: ServiceStatus[] = [
 ];
 
 const STATS = [
-  { label: "Models Loaded", value: "3", sub: "Gemma · Llama · Mistral" },
+  { label: "Models Loaded", value: "3", sub: "Qwen 2.5 14B · 7B" },
   { label: "Documents Indexed", value: "0", sub: "Upload via Documents page" },
   { label: "Conversations", value: "0", sub: "Start chatting" },
   { label: "Total Cost", value: "$0", sub: "100% local & free" },

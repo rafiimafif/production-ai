@@ -37,17 +37,17 @@ MODELS: dict[str, ModelInfo] = {
         context_window=32768,
         use_case="general",
     ),
-    "nomic-embed": ModelInfo(
-        id="nomic-embed",
-        ollama_tag="nomic-embed-text",
-        description="Nomic Embed Text — embedding model for RAG pipelines.",
-        context_window=8192,
+    "qwen2.5-1.5b": ModelInfo(
+        id="qwen2.5-1.5b",
+        ollama_tag="qwen2.5:1.5b",
+        description="Alibaba Qwen 2.5 1.5B — small, fast model for embeddings and light tasks.",
+        context_window=32768,
         use_case="embedding",
     ),
 }
 
 DEFAULT_CHAT_MODEL = "qwen2.5-7b"
-DEFAULT_EMBED_MODEL = "nomic-embed"
+DEFAULT_EMBED_MODEL = "qwen2.5-1.5b"
 
 
 def get_model(model_id: str) -> ModelInfo:

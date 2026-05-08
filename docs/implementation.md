@@ -10,7 +10,7 @@ This document breaks down the build process into 9 logical phases.
 ## Phase 2: LLM Provider Layer
 - **Goal**: Abstract the LLM interactions.
 - **Tech**: `httpx`, `ollama-python`.
-- **Key Task**: Create a unified client that can switch between Gemma, Llama, and Mistral.
+- **Key Task**: Create a unified client that can switch between Qwen 2.5 14B and 7B.
 
 ## Phase 3: RAG Pipeline
 - **Goal**: Enable the system to "know" things from private documents.
