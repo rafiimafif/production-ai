@@ -81,7 +81,6 @@ This repository has **Branch Protection** enabled.
 - [Architecture & Design](docs/architecture.md)
 - [User Guide (Non-IT)](docs/user_guide.md)
 - [Implementation Roadmap](docs/implementation.md)
-- [Ollama Docker Setup](docs/ollama_docker_plan.md)
 - [MCP Tool Integration](docs/mcp.md)
 
 ---
