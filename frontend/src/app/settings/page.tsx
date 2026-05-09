@@ -5,7 +5,6 @@ import { useState } from "react";
 const MODELS = [
   { id: "qwen2.5-14b", tag: "qwen2.5:14b", desc: "Alibaba Qwen 2.5 (14B) — agentic workflows", size: "~9 GB" },
   { id: "qwen2.5-7b", tag: "qwen2.5:7b", desc: "Alibaba Qwen 2.5 (7B) — fast and efficient", size: "~4.5 GB" },
-  { id: "qwen2.5-1.5b", tag: "qwen2.5:1.5b", desc: "Small model for embeddings & light tasks", size: "~900 MB" },
 ];
 
 export default function SettingsPage() {

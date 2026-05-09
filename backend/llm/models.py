@@ -26,28 +26,21 @@ MODELS: dict[str, ModelInfo] = {
     "qwen2.5-14b": ModelInfo(
         id="qwen2.5-14b",
         ollama_tag="qwen2.5:14b",
-        description="Alibaba Qwen 2.5 14B — highly capable for agentic workflows.",
-        context_window=32768,
+        description="Alibaba Qwen 2.5 14B — high-performance agentic workflows.",
+        context_window=4096,
         use_case="complex",
     ),
     "qwen2.5-7b": ModelInfo(
         id="qwen2.5-7b",
         ollama_tag="qwen2.5:7b",
-        description="Alibaba Qwen 2.5 7B — extremely fast and efficient for daily use.",
-        context_window=32768,
+        description="Alibaba Qwen 2.5 7B — balanced performance and speed.",
+        context_window=4096,
         use_case="general",
-    ),
-    "qwen2.5-1.5b": ModelInfo(
-        id="qwen2.5-1.5b",
-        ollama_tag="qwen2.5:1.5b",
-        description="Alibaba Qwen 2.5 1.5B — small, fast model for embeddings and light tasks.",
-        context_window=32768,
-        use_case="embedding",
     ),
 }
 
 DEFAULT_CHAT_MODEL = "qwen2.5-7b"
-DEFAULT_EMBED_MODEL = "qwen2.5-1.5b"
+DEFAULT_EMBED_MODEL = "qwen2.5-7b"
 
 
 def get_model(model_id: str) -> ModelInfo:
